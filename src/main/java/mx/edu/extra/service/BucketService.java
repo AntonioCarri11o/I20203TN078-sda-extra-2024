@@ -33,4 +33,16 @@ public class BucketService {
         Bucket bucket = new Bucket(articlesSet);
         bucketDao.save(bucket);
     }
+    public List<Bucket> list() {
+        return bucketDao.findAll();
+    }
+
+    public Bucket getById(Long id) throws EntityNotFoundException {
+        Optional<Bucket> bucketOptional = bucketDao.findById(id);
+        if (!bucketOptional.isEmpty()) {
+            return bucketOptional.get();
+        } else {
+            throw new EntityNotFoundException("Buckket not found");
+        }
+    }
 }

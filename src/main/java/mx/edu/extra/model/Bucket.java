@@ -19,7 +19,6 @@ public class Bucket {
     @Id
     @Column(name = "id_bucket")
     Long Id;
-    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "article_bucket",
